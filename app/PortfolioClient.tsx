@@ -174,6 +174,10 @@ const STATS = [
 
 const ROLES = ["Analyst", "Fintech", "Finance", "Student", "Data"];
 
+function UpRightIcon() {
+  return <span className="up-right-icon" aria-hidden="true" />;
+}
+
 function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   const [count, setCount] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
@@ -296,7 +300,7 @@ function Navbar() {
         aria-label="Primary navigation"
       >
         <a className="logo-ring" href="#home" aria-label="Nguyen Tan Huy home">
-          <span>MS</span>
+          <span>NH</span>
         </a>
         <span className="nav-divider" aria-hidden="true" />
         <div className="nav-links">
@@ -314,7 +318,7 @@ function Navbar() {
         <span className="nav-divider" aria-hidden="true" />
         <a className="say-hi" href="#contact">
           <span>
-            Say hi <span className="arrow-glyph" aria-hidden="true">↗</span>
+            <span className="say-hi-label">Say hi</span> <UpRightIcon />
           </span>
         </a>
       </nav>
@@ -484,7 +488,7 @@ function Hero({ ready }: { ready: boolean }) {
             See Works <span className="arrow-glyph" aria-hidden="true">↓</span>
           </a>
           <a className="button button-outline" href="#contact">
-            Reach out <span className="arrow-glyph" aria-hidden="true">↗</span>
+            Reach out <UpRightIcon />
           </a>
         </div>
       </div>
@@ -629,7 +633,7 @@ function Journal() {
                 <span>{entry.date}</span>
               </span>
               <span className="journal-arrow" aria-hidden="true">
-                ↗
+                <UpRightIcon />
               </span>
             </motion.a>
           ))}
@@ -762,7 +766,7 @@ function Explorations({
             curiosity.
           </p>
           <a className="button button-outline" href="#contact">
-            See more experiments <span className="arrow-glyph" aria-hidden="true">↗</span>
+            See more experiments <UpRightIcon />
           </a>
         </div>
       </div>
@@ -869,7 +873,7 @@ function Footer() {
           aria-label="Email Nguyen Tan Huy"
         >
           <span>tanhuypk0204@gmail.com</span>
-          <span className="arrow-glyph" aria-hidden="true">↗</span>
+          <UpRightIcon />
         </a>
       </motion.div>
 
@@ -878,7 +882,7 @@ function Footer() {
         <div className="social-links" aria-label="Social links">
           {[
             ["Facebook", "https://www.facebook.com/nguyentanhuy.24"],
-            ["LinkedIn", "www.linkedin.com/in/ngtanhuy"],
+            ["LinkedIn", "https://www.linkedin.com/in/ngtanhuy"],
             ["Zalo", "https://zalo.me/09063467179"],
             ["GitHub", "https://github.com/Yuhhy"],
           ].map(([label, href]) => (

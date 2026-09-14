@@ -36,7 +36,14 @@ export default function Resume() {
           if (cancelled) return;
           const page = await pdf.getPage(number);
           const naturalViewport = page.getViewport({ scale: 1 });
-          const viewport = page.getViewport({ scale: 2200 / naturalViewport.width });
+          const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+          const targetWidth = Math.min(
+            1800,
+            Math.max(720, container.clientWidth * pixelRatio),
+          );
+          const viewport = page.getViewport({
+            scale: targetWidth / naturalViewport.width,
+          });
           const canvas = document.createElement("canvas");
           canvas.width = Math.ceil(viewport.width);
           canvas.height = Math.ceil(viewport.height);

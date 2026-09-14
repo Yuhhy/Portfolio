@@ -678,7 +678,16 @@ function Explorations({
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reduceMotion || !sectionRef.current || !contentRef.current) return;
+    const useStaticMobileLayout = window.matchMedia(
+      "(max-width: 640px), (pointer: coarse)",
+    ).matches;
+    if (
+      reduceMotion ||
+      useStaticMobileLayout ||
+      !sectionRef.current ||
+      !contentRef.current
+    )
+      return;
     let cancelled = false;
     let context: { revert: () => void } | undefined;
 
